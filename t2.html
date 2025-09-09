@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ganga Gupta Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto&display=swap" rel="stylesheet">
+<style>
+:root {
+  --black-bg: #000000;
+  --light-text: #f5f2e9;
+  --orange: #f5a623;
+  --glow: 0 0 15px #f5a623, 0 0 30px #f5a623;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Roboto', sans-serif; transition: all 0.3s ease; }
+body { background-color: var(--black-bg); color: var(--light-text); line-height: 1.6; scroll-behavior: smooth; min-height: 100vh; }
+a { text-decoration: none; color: inherit; cursor: pointer; }
+
+header {
+  background-color: #111;
+  padding: 1.5rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+header h1 { font-family: 'Playfair Display', serif; font-size: 2rem; cursor: pointer; }
+nav a { margin-left: 1rem; font-weight: bold; padding: 0.3rem 0.6rem; border-radius: 5px; }
+nav a:hover, nav a.active { color: var(--orange); text-shadow: var(--glow); }
+
+.hero { display: flex; flex-wrap: wrap; justify-content: center; align-items: flex-start; gap: 3rem; padding: 4rem 2rem; }
+.hero img { max-width: 300px; border-radius: 10px; box-shadow: 0 0 10px var(--orange); cursor: pointer; transition: all 0.5s ease; }
+.hero img:hover { box-shadow: var(--glow); transform: scale(1.05) rotate(1deg); }
+
+.hero-text { max-width: 600px; }
+.hero-text h2 { font-size: 3rem; font-family: 'Playfair Display', serif; margin-bottom: 1rem; position: relative; }
+.hero-text h2::after { content: ''; display: block; width: 50px; height: 3px; background: var(--orange); margin-top: 5px; border-radius: 3px; }
+.hero-text p { margin-bottom: 1rem; font-size: 1rem; }
+
+section { padding: 4rem 2rem; opacity: 0; transform: translateY(20px); transition: all 0.7s ease; }
+section.active { opacity: 1; transform: translateY(0); }
+
+h3 { font-family: 'Playfair Display', serif; font-size: 2rem; margin-bottom: 1rem; color: var(--light-text); position: relative; }
+h3::after { content: ''; display: block; width: 60px; height: 3px; background-color: var(--orange); margin-top: 5px; border-radius: 3px; }
+
+.skills-grid, .problem-grid, .certifications-grid, .contact-grid { display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center; }
+.skill, .problem-block, .cert-block, .contact-block {
+  background-color: #222;
+  color: var(--orange);
+  padding: 1rem 1.5rem;
+  border-radius: 10px;
+  font-weight: bold;
+  box-shadow: 0 0 5px var(--orange);
+  cursor: pointer;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+.skill:hover, .problem-block:hover, .cert-block:hover, .contact-block:hover { box-shadow: var(--glow); transform: translateY(-3px); }
+
+.problem-block.active, .cert-block.active, .contact-block.active { box-shadow: var(--glow); transform: scale(1.05); }
+
+.contact { background-color: #111; color: var(--light-text); padding: 2rem; border-radius: 10px; max-width: 800px; margin: 2rem auto; transition: all 0.3s ease; }
+
+@media (max-width: 768px) {
+  .hero { flex-direction: column; align-items: center; text-align: center; gap: 2rem; padding: 2rem 1rem; }
+  .skills-grid, .problem-grid, .certifications-grid, .contact-grid { flex-direction: column; align-items: center; gap: 1rem; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <h1 onclick="scrollToTop()">Ganga Gupta</h1>
+  <nav>
+    <a onclick="showSection('about')" id="nav-about">About Me</a>
+    <a onclick="showSection('problem')" id="nav-problem">Problem Solving</a>
+    <a onclick="showSection('skills')" id="nav-skills">Skills</a>
+    <a onclick="showSection('certifications')" id="nav-certifications">Certifications</a>
+    <a onclick="showSection('contact')" id="nav-contact">Contact</a>
+  </nav>
+</header>
+
+<section class="hero active" id="about">
+  <img src="Screenshot 2025-09-09 161204.png" alt="Ganga Gupta">
+  <div class="hero-text">
+    <h2>Hello, I’m Ganga!</h2>
+    <p>I am a passionate AI/ML Engineer with strong expertise in Python, machine learning, and database management. I enjoy tackling challenging problems, designing intelligent solutions, and turning complex data into actionable insights. My work focuses on creating efficient, data-driven systems that drive results and innovation.</p>
+  </div>
+</section>
+
+<section id="problem">
+  <h3>Problem Solving</h3>
+  <div class="problem-grid">
+    <a href="https://leetcode.com/u/Ganga-16/" target="_blank" class="problem-block" onclick="activateBlock(this)">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/1/19/LeetCode_logo_black.png" alt="LeetCode" width="50"><br>LeetCode
+    </a>
+    <a href="https://github.com/gangaji164/LeetCode-Programs" target="_blank" class="problem-block" onclick="activateBlock(this)">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/1/19/LeetCode_logo_black.png" alt="LeetCode Solutions" width="50"><br>LeetCode Solutions
+    </a>
+    <a href="https://github.com/gangaji164/" target="_blank" class="problem-block" onclick="activateBlock(this)">
+      <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="GitHub" width="50"><br>GitHub Solutions
+    </a>
+    <a href="https://www.hackerrank.com/profile/Ganga_G" target="_blank" class="problem-block" onclick="activateBlock(this)">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/6/65/HackerRank_logo.png" alt="HackerRank" width="50"><br>HackerRank
+    </a>
+  </div>
+</section>
+
+
+<section id="skills">
+  <h3>Skills</h3>
+  <div class="skills-grid">
+    <div class="skill">Python</div>
+    <div class="skill">C++</div>
+    <div class="skill">Scikit-learn</div>
+    <div class="skill">Pandas</div>
+    <div class="skill">HTML</div>
+    <div class="skill">CSS</div>
+    <div class="skill">JavaScript</div>
+    <div class="skill">SQL</div>
+    <div class="skill">MongoDB</div>
+    <div class="skill">NodeJs</div>
+    <div class="skill">Problem Solving</div>
+  </div>
+</section>
+
+<section id="certifications">
+  <h3>Certifications</h3>
+  <div class="certifications-grid">
+    <a href="https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/9PBTqmSxAf6zZTseP/io9DzWKe3PTsiS6GG_9PBTqmSxAf6zZTseP_MZvkQFBdnWoC4gwuP_1754584739138_completion_certificate.pdf" target="_blank" class="cert-block" onclick="activateBlock(this)">Deloitte Australia - Data Analytics Simulation</a>
+    <a href="https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/ifobHAoMjQs9s6bKS/gMTdCXwDdLYoXZ3wG_ifobHAoMjQs9s6bKS_MZvkQFBdnWoC4gwuP_1751558963356_completion_certificate.pdf" target="_blank" class="cert-block" onclick="activateBlock(this)">Tata - GenAI Data Analytics Simulation</a>
+    <a href="https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/pmnMSL4QiQ9JCgE3W/kkE9HyeNcw6rwCRGw_pmnMSL4QiQ9JCgE3W_MZvkQFBdnWoC4gwuP_1747048449489_completion_certificate.pdf" target="_blank" class="cert-block" onclick="activateBlock(this)">AWS APAC - Solutions Architecture Simulation</a>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <h3>Contact</h3>
+  <div class="contact-grid">
+    <a href="https://github.com/gangaji164/" target="_blank" class="contact-block" onclick="activateBlock(this)">
+      <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="GitHub" width="40"><br>GitHub
+    </a>
+    <a href="https://www.linkedin.com/in/ganga-gupta-2b5258315/" target="_blank" class="contact-block" onclick="activateBlock(this)">
+      <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn" width="40"><br>LinkedIn
+    </a>
+    <a href="mailto:ganga04082005@gmail.com" class="contact-block" onclick="activateBlock(this)">
+      <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="Gmail" width="40"><br>Gmail
+    </a>
+  </div>
+</section>
+
+<script>
+function scrollToTop() { window.scrollTo({ top: 0, behavior: 'smooth' }); }
+
+function showSection(id) {
+  const sections = document.querySelectorAll('section');
+  const navLinks = document.querySelectorAll('nav a');
+  
+  sections.forEach(sec => sec.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+
+  navLinks.forEach(link => link.classList.remove('active'));
+  document.getElementById("nav-" + id).classList.add('active');
+}
+
+function activateBlock(block) {
+  const blocks = document.querySelectorAll('.problem-block, .cert-block, .contact-block');
+  blocks.forEach(b => b.classList.remove('active'));
+  block.classList.add('active');
+}
+</script>
+
+</body>
+</html>
